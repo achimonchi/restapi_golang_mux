@@ -1,0 +1,4 @@
+package: github.com/achimonchi/belajar_restapi_mux
+import:
+- package: github.com/gorilla/mux
+  version: v1.7.4
