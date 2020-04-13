@@ -3,18 +3,17 @@ package config
 import (
 	"database/sql"
 	"fmt"
-	"os"
 
 	_ "github.com/lib/pq"
 )
 
 func GetPostgresDB() (*sql.DB, error) {
-	host := os.Getenv("POSTGRES_HOST")
-	user := os.Getenv("POSTGRES_USER")
-	password := os.Getenv("POSTGRES_PSASWORD")
-	databaseName := os.Getenv("POSTGRES_DB_NAME")
+	host := "localhost"
+	user := "postgres"
+	password := "root"
+	databaseName := "crudgo"
 
-	desc := fmt.Sprintf("host=%s user=%s password=%s dbname=%s", host, user, password, databaseName)
+	desc := fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=disable", host, user, password, databaseName)
 	db, err := createConnection(desc)
 
 	if err != nil {
